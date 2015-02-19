@@ -14,5 +14,6 @@ Run the scipt with the following command **source("run_analysis.R")**
 * Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 
 ###The final result is a narrow data set, which contains 4 columns and 15480 observations.
+It can also be found in the repository, look for final.txt 
 
 A Codebook **(CodeBook.md)** is also generated and describes the above steps more in detail.
