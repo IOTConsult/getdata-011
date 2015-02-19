@@ -37,10 +37,10 @@ See 'features_info.txt' for more details.
 |train/subject_test.txt|List of Subject IDs|
 
 ###Used Packages
-**data.table** for the **merge** function
-**dplyr** for the **select** function 
-**plyr** for the **ddply** function
-**reshape2** for the **melt** function
+* **data.table** for the **merge** function
+* **dplyr** for the **select** function 
+* **plyr** for the **ddply** function
+* **reshape2** for the **melt** function
 
 ###Set Working dir
 Put the dataset and R script in the same directory.
@@ -58,17 +58,17 @@ Put the dataset and R script in the same directory.
 
 ###Part2: Extracts only the measurements on the mean and standard deviation for each assignment.
 * Convert the **all_data** dataframe to a **data.table**.
-* Create a new data table, all_data_table(10299 obs,88 var) , but select only observations where the columns containing **"mean"** and **"std"**
+* Create a new data table, **all_data_table**(10299 obs,88 var) , but select only observations where the columns containing **"mean"** and **"std"**
 
 ###Part3: Use descriptive activity names to name the activities in the data set.
 * Add an index key (Act) to the data table, this is needed for the merge function
 * Create a new data table as a result of the combination of **act_lab** and **all_data_table**
-* The new data table is called: **all_data_act_name**(10299 obs,88 var). All 'names' activities are merged in the data table.
+* The new data table is called: **all_data_act_name**(10299 obs,88 var). All 'names' activities are now merged in the data table.
 
 ###Part4: Appropriately labels the data set with descriptive variable names
 * Rename the V1 column to a more appropriate name **Volunteer**
 * Rename the V2 column to a more appropriate name **Activity**
-* Remove the first column (Act), became obsolete after the merge.
+* Remove the first column (Act), it became obsolete after the merge.
 * Re-order the column order,order by Volunteer and activity
 * Check for NA's (No NA vales should be present)
 * Create a new data table with the above result, **data_4** (10299 obs,88 var)
@@ -78,7 +78,8 @@ Put the dataset and R script in the same directory.
 * Use the ddply function to summarise by 'mean' for all variables, grouped by Activity and Volunteer, store this in the **final_5**(15480 obs,4 var) data table
 * Clean the environment > remove unneeded objects
 
-###Final result => Narrow data, 4 columns, 15480 observations(should be divisible by 180) 
+###Final result => Narrow data, 4 columns, 15480 observations(should be divisible by 180)
+Write the result to a txt file (**final.txt**) and upload it to Coursera
 
 
 
