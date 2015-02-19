@@ -1,7 +1,7 @@
 ## README.MD for run_analysis.R
 This **README** file contains an overview of the **Project Course: Getting and Cleaning Data Assignment**
 
-###Download the dataset and create run_analysis.R
+###Download the dataset and create the run_analysis.R script
 The dataset can be found in the following location: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 Put the dataset and the R script **run_analysis.R** in the same directory.
 
@@ -18,3 +18,8 @@ Run the scipt with the following command **source("run_analysis.R")**
 It can also be found in the repository, look for **final.txt** 
 
 A Codebook **(CodeBook.md)** is also generated and describes the above steps more in detail.
+###Contents of this Repository:
+* CodeBook: **CodeBook.md**
+* R script : **run.analysis.R**
+* Output File: **final.txt**
+* Readme file: **README.md** 
