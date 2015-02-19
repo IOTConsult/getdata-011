@@ -1,31 +1,23 @@
-# getdata-011
-Getting and Cleaning Data Assignment repo
-##Set Working dir
-setwd ("\\\\UPLCI084736/USERS$/gjf510/MyCloudDrive/Documents/Coursera/getdata-011/week4")
-##Part1_Start
+## getdata-011
+This **README** file contains an overview of all important steps.
+Project Course Getting and Cleaning Data Assignment
 
-##Merges the training and the test sets to create one data set
-##Create tabels for the activity labels and features txt file
-
-##Convert the second column to a character set instead of a factor
-
-##Read all test data
-
-##Read all train data
-
-##Verify them with the View function. For example: View(x_train_data)
-
-##Combine all tables in one large table. 
-##First of all add the features table (only column2) as column names on x_test_data.
-
-##Verify head(x_test_data)
+#Set Working dir
+Put the dataset and R script in the same directory.
+###Part1
+#Merges the training and the test sets to create one data set
+Create tabels for the activity labels and features txt file
+Convert the Activities column to a character set instead of a factor
+#Read all test data
+#Read all train data
+#Verify them with the View function. For example: View(x_train_data)
+#Combine all tables in one large table. 
+#First of all add the features table (only column2) as column names on x_test_data.
+#Verify if the result is as expected
+head(x_test_data)
 ##Do the same for x_train_data
-
-
 ##Use cbind to merge subject_test_data, y_test_data (2nd column) and x_test_data, put all in the table named test_data
-
 ##rename the 2nd column to 'Act' to avoid duplicate columnnames
-
 ##Use cbind to merge subject_test_data, y_test_data (2nd column) and x_test_data, put all in the table named test_data
 #train_data <- cbind(subject_train_data,y_train_act_lab[2],x_train_data)
 
