@@ -6,12 +6,11 @@ Project Course Getting and Cleaning Data Assignment
 Put the dataset and R script in the same directory.
 ##Part1
 ###Merges the training and the test sets to create one data set
-* Create tabels for the activity labels and features txt file
-* Convert the Activities column to a character set instead of a factor
-* Read all test data
-* Read all train data
-* Verify them with the View function. 
-View(x_train_data)
+* Import the activity labels and features txt files in a data.frame, **act_lab** and **feat**
+* Convert the Activities column in the **act_lab** dataframe to a character set instead of a factor
+* Read all test data in three different dataframes, called **subject_test_data**,**x_test_data** and **y_test_data**
+* Read all train data in three different dataframes, called **subject_train_data**,**x_train_data** and **y_train_data**
+* Verify them with the View function. For example View(x_train_data)
 * Combine all tables in one large table. 
 * First of all add the features table (only column2) as column names on x_test_data.
 * Verify if the result is as expected
