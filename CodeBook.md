@@ -1,10 +1,11 @@
 ## CodeBook.MD for run_analysis.R
-This **CodeBook** file contains details of the run.analysis.R script
+This **CodeBook** file contains details of the **run.analysis.R** script
 
 ###DataSet
 The dataset can be found in the following location: https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 
-Excerpt of the README.txt file , provided by the original publication [1] 
+Excerpt of the README.txt file , provided by the original publication **[1]**.
+ 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. 
 Each person performed **six activities** (**WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING**) 
 wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 
@@ -35,38 +36,44 @@ See 'features_info.txt' for more details.
 |train/subject_train.txt|List of Subject IDs|
 |train/subject_test.txt|List of Subject IDs|
 
+###Used Packages
+**data.table** for the **merge** function
+**dplyr** for the **select** function 
+**plyr** for the **ddply** function
+**reshape2** for the **melt** function
+
 ###Set Working dir
 Put the dataset and R script in the same directory.
-##Part1
-###Merges the training and the test sets to create one data set
-* Import the activity labels and features txt files in a data.frame, **act_lab** and **feat**
+###Part1: Merges the training and the test sets to create one data set
+* Import the activity labels and features txt files in a data.frame, **act_lab**(6 obs,2 var) and **feat**(561 obs,2 var)
 * Convert the Activities column in the **act_lab** dataframe to a character set instead of a factor
-* Read all test data in three different dataframes, called **subject_test_data**,**x_test_data** and **y_test_data**
-* Read all train data in three different dataframes, called **subject_train_data**,**x_train_data** and **y_train_data**
+* Read all test data in three different dataframes, called **subject_test_data**(2947 obs,1 var),**x_test_data**(2947 obs,561 var) and **y_test_data**(2947 obs,1 var)
+* Read all train data in three different dataframes, called **subject_train_data**(7352 obs,1 var),**x_train_data**(7352 obs,561 var) and **y_train_data**(7352 obs,1 var)
 * Combine all tables in one large table. 
-* Add the second column of the features dataframe as column names on x_test_data.
-* Do the same for x_train_data
-* Bind **subject_test_data**, **y_test_data** and **x_test_data**, put it in a dataframe named **test_data**
-* Combine the test and train dataframes, put it in a dataframe named **all_data**
+* Add the second column of the features dataframe as column names on **x_test_data**.
+* Do the same for **x_train_data**
+* Bind **subject_test_data**, **y_test_data** and **x_test_data**, put it in a dataframe named **test_data**(2947 obs,563 var)
+* Bind **subject_train_data**, **y_train_data** and **x_train_data**, put it in a dataframe named **train_data**(7352 obs,563 var)
+* Combine the test and train dataframes, put it in a dataframe named **all_data**(10299 obs,563 var)
 
-##Part2
-###Extracts only the measurements on the mean and standard deviation for each assignment.
-* Convert all_data from data.frame to data.table, else the select function will generate an error.
-* Create a new data table , but select only columns containing "mean" and "std"
+###Part2: Extracts only the measurements on the mean and standard deviation for each assignment.
+* Convert the **all_data** dataframe to a **data.table**.
+* Create a new data table, all_data_table(10299 obs,88 var) , but select only observations where the columns containing **"mean"** and **"std"**
 
-##Part3
-###Use descriptive activity names to name the activities in the data set.
+###Part3: Use descriptive activity names to name the activities in the data set.
+* Add an index key (Act) to the data table, this is needed for the merge function
+* Create a new data table as a result of the combination of **act_lab** and **all_data_table**
+* The new data table is called: **all_data_act_name**(10299 obs,88 var). All 'names' activities are merged in the data table.
 
-##Part4
-###Appropriately labels the data set with descriptive variable names
+###Part4: Appropriately labels the data set with descriptive variable names
 * Rename the V1 column to a more appropriate name **Volunteer**
+* Rename the V2 column to a more appropriate name **Activity**
 * Remove the first column (Act), became obsolete after the merge.
-* Re-order the column order
-* Order by Volunteer and activity
-* Check for NA's 
-##Part5
-###Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
-* Use the Reshape2 (optional to narrow the dataset)
+* Re-order the column order,order by Volunteer and activity
+* Check for NA's (No NA vales should be present)
+* Create a new data table with the above result, **data_4** (10299 obs,88 var)
+###Part5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+* Use the Reshape2 package to narrow the dataset
 * Clean the environment > remove unneeded objects
 
 ###Final result => Narrow data, 4 columns, 15480 observations(should be divisible by 180) 
