@@ -6,7 +6,7 @@ The dataset can be found in the following location: https://d396qusza40orc.cloud
 
 Excerpt of the README.txt file , provided by the original publication **[1]**.
  
-The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. 
+The experiments have been carried out with a group of **30 volunteers** within an age bracket of 19-48 years. 
 Each person performed **six activities** (**WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING**) 
 wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, 
 we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. 
@@ -20,7 +20,7 @@ The sensor acceleration signal, which has gravitational and body motion componen
 was separated using a Butterworth low-pass filter into body acceleration and gravity. 
 The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. 
 From each window, a vector of features was obtained by calculating variables from the time and frequency domain. 
-See 'features_info.txt' for more details. 
+
 
 
 ###Overview Datafiles 
@@ -63,22 +63,23 @@ Put the dataset and R script in the same directory.
 ###Part3: Use descriptive activity names to name the activities in the data set.
 * Add an index key (Act) to the data table, this is needed for the merge function
 * Create a new data table as a result of the combination of **act_lab** and **all_data_table**
-* The new data table is called: **all_data_act_name**(10299 obs,88 var). All 'names' activities are now merged in the data table.
+* The new data table is called: **all_data_act_name**(10299 obs,88 var). All 'named' activities are now merged in the data table.
 
 ###Part4: Appropriately labels the data set with descriptive variable names
 * Rename the V1 column to a more appropriate name **Volunteer**
 * Rename the V2 column to a more appropriate name **Activity**
-* Remove the first column (Act), it became obsolete after the merge.
-* Re-order the column order,order by Volunteer and activity
+* Remove the first column **(Act)**, it became **obsolete** after the merge.
+* Re-order the column order,**order by Volunteer and Activity**
 * Check for NA's (No NA vales should be present)
 * Create a new data table with the above result, **data_4** (10299 obs,88 var)
 
 ###Part5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
 * Use the Reshape2 package (melt function) to narrow the dataset (4 variables), the result is assigned to data table **data_5**(885714 obs,4 var)
 * Use the ddply function to summarise by 'mean' for all variables, grouped by Activity and Volunteer, store this in the **final_5**(15480 obs,4 var) data table
+* Hereby the names of the variables of the tidy dataset: **Volunteer** , **Activity** , **variable** and **mean** 
 * Clean the environment > remove unneeded objects
 
-###Final result => Narrow data, 4 columns, 15480 observations(should be divisible by 180)
+###Final result => Narrow data, 4 columns, 15480 observations
 Write the result to a txt file (**final.txt**) and upload it to Coursera
 
 
