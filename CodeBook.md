@@ -59,6 +59,7 @@ Put the dataset and R script in the same directory.
 ###Part2: Extracts only the measurements on the mean and standard deviation for each assignment.
 * Convert the **all_data** dataframe to a **data.table**.
 * Create a new data table, **all_data_table**(10299 obs,88 var) , but select only observations where the columns containing **"mean"** and **"std"**
+* I choose to add all obervations where **mean** was present (case insensitive), thus the maximum of columns(88)
 
 ###Part3: Use descriptive activity names to name the activities in the data set.
 * Add an index key (Act) to the data table, this is needed for the merge function
@@ -74,6 +75,7 @@ Put the dataset and R script in the same directory.
 * Create a new data table with the above result, **data_4** (10299 obs,88 var)
 
 ###Part5: Creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+* I choose to narrow the dataset to 4 variables as this gives a clean output and gives me the opportunity to use the Reshape2 package.
 * Use the Reshape2 package (melt function) to narrow the dataset (4 variables), the result is assigned to data table **data_5**(885714 obs,4 var)
 * Use the ddply function to summarise by 'mean' for all variables, grouped by Activity and Volunteer, store this in the **final_5**(15480 obs,4 var) data table
 * Hereby the names of the variables of the tidy dataset: **Volunteer** , **Activity** , **variable** and **mean** 
